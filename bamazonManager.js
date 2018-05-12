@@ -83,7 +83,48 @@ function checkInventory() {
             })
         }
     if (a === e) {
-        
+        inquirer.prompt ([
+            {
+                type: "input",
+                name: "item_id",
+                message: "enter an item id after 12"
+            }, {
+                type: "input",
+                name: "product_name",
+                message: "Enter Name of Product"
+            } , {
+                type: "input",
+                name: "department_name",
+                message: "What department does this belong to?"
+            } , {
+                type: "input",
+                name: "PRICE",
+                message: "How much does each unit cost?"
+            } , {
+                type: "input",
+                name: "stock_quantity",
+                message: "How many do we have in stock?"
+            }
+        ]).then(function (newProduct){
+            var l = newProduct.item_id;
+            var m = newProduct.product_name;
+            var n = newProduct.department_name;
+            var o = newProduct.PRICE;
+            var p = newProduct.stock_quantity;
+
+        var query = connection.query (
+            "INSERT INTO products SET ?",
+            {
+                item_id: l,
+                product_name: m,
+                department_name: n,
+                PRICE: o,
+                stock_quantity: p
+            }
+        )
+        connection.end();
+        })
+
     }
 
     })
