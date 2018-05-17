@@ -93,7 +93,7 @@ function checkInventory() {
                 message: "What department does this belong to?"
             } , {
                 type: "input",
-                name: "PRICE",
+                name: "price",
                 message: "How much does each unit cost?"
             } , {
                 type: "input",
@@ -113,7 +113,7 @@ function checkInventory() {
                 item_id: l,
                 product_name: m,
                 department_name: n,
-                PRICE: o,
+                price: o,
                 stock_quantity: p
             }
         )
