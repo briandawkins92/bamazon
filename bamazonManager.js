@@ -29,7 +29,7 @@ function checkInventory() {
                 for (var i = 0; i < res.length; i++) {
                     console.log("Item ID: " + res[i].item_id + " Product name: "
                         + res[i].product_name + " Department Name: " + res[i].department_name
-                        + ' Price: $' + res[i].PRICE + " Stock Quantity: " +
+                        + ' Price: $' + res[i].price + " Stock Quantity: " +
                         res[i].stock_quantity);
                 }
             })
@@ -41,7 +41,7 @@ function checkInventory() {
                     if (res[i].stock_quantity < 5) {
                         console.log("Item ID: " + res[i].item_id + " Product name: "
                             + res[i].product_name + " Department Name: " + res[i].department_name
-                            + ' Price: $' + res[i].PRICE + " Stock Quantity: " +
+                            + ' Price: $' + res[i].price + " Stock Quantity: " +
                             res[i].stock_quantity);
                     }
                 }
@@ -77,18 +77,13 @@ function checkInventory() {
                             }
                         ]
                     )
-                    console.log(query.sql);
                     connection.end();
                 })
             })
         }
     if (a === e) {
         inquirer.prompt ([
-            {
-                type: "input",
-                name: "item_id",
-                message: "enter an item id after 12"
-            }, {
+             {
                 type: "input",
                 name: "product_name",
                 message: "Enter Name of Product"
@@ -109,7 +104,7 @@ function checkInventory() {
             var l = newProduct.item_id;
             var m = newProduct.product_name;
             var n = newProduct.department_name;
-            var o = newProduct.PRICE;
+            var o = newProduct.price;
             var p = newProduct.stock_quantity;
 
         var query = connection.query (

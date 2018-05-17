@@ -35,7 +35,7 @@ function checkStock() {
                 connection.end();
             } else {
                 console.log("Your order is fulfilled! Your total is $"
-                    + (y * res[x - 1].PRICE));
+                    + (y * res[x-1].price));
                     var query = connection.query(
                         "UPDATE products SET ? WHERE ?",
                         [
@@ -47,7 +47,6 @@ function checkStock() {
                             }
                         ]
                     )
-                    console.log(query.sql);
                     connection.end();
                 };
             })
